@@ -1,0 +1,22 @@
+{
+  "name": "geottuse-tools",
+  "version": "0.0.1",
+  "description": "Reusable methods",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robogram/geottuse-tools.git"
+  },
+  "author": "Geottuse",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Robogram/geottuse-tools/issues"
+  },
+  "homepage": "https://github.com/Robogram/geottuse-tools#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
