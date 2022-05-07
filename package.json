@@ -1,6 +1,6 @@
 {
   "name": "geottuse-tools",
-  "version": "0.0.1",
+  "version": "0.0.16",
   "description": "Reusable methods",
   "main": "index.js",
   "scripts": {
@@ -15,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/Robogram/geottuse-tools/issues"
   },
-  "homepage": "https://github.com/Robogram/geottuse-tools#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "homepage": "https://github.com/Robogram/geottuse-tools#readme"
 }
