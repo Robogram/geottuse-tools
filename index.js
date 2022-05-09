@@ -36,22 +36,20 @@ export const displayTime = unixtime => {
 
   timeheader = "at " + hour + ":" + minute + " " + period
 
-  if (time < currentDate) { // today
+  if (time <= currentDate) { // today
     timeStr = "today " + timeheader
-  } else {
-    if (time > currentDate) { // after today
-      if (time - currentDate <= 86340000) {
-        timeStr = "tomorrow " + timeheader
-      } else {
-        if (time - currentDate < 604800000) { // next week
-          if (selectedTime.getDay() < currTime.getDay()) {
-            timeStr = "on " + days[selectedTime.getDay()] + " " + timeheader
-          } else if (selectedTime.getDay() == currTime.getDay()) {
-            timeStr = "next " + days[selectedTime.getDay()] + " " + timeheader
-          }
-        } else { // next two weeks or more
-          timeStr = "on " + days[selectedTime.getDay()] + ", " + months[selectedMonth] + " " + selectedDate + " " + timeheader
+  } else { // after today
+    if (time - currentDate <= 86340000) {
+      timeStr = "tomorrow " + timeheader
+    } else {
+      if (time - currentDate < 604800000) { // next week
+        if (selectedTime.getDay() < currTime.getDay()) {
+          timeStr = "on " + days[selectedTime.getDay()] + " " + timeheader
+        } else { // next week same day
+          timeStr = "next " + days[selectedTime.getDay()] + " " + timeheader
         }
+      } else { // next two weeks or more
+        timeStr = "on " + days[selectedTime.getDay()] + ", " + months[selectedMonth] + " " + selectedDate + " " + timeheader
       }
     }
   }
