@@ -17,7 +17,8 @@ export const getId = () => {
 
   return id
 }
-export const displayTime = unixtime => {
+export const displayTime = time => {
+  const unixtime = Date.parse(time["day"] + " " + time["month"] + " " + time["date"] + " " + time["year"] + " " + time["hour"] + " " + time["minute"])
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
   const currTime = new Date(Date.now()), currMonth = currTime.getMonth(), currDate = currTime.getDate(), currYear = currTime.getFullYear()
