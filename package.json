@@ -1,6 +1,6 @@
 {
   "name": "geottuse-tools",
-  "version": "0.0.18",
+  "version": "0.0.34",
   "description": "Reusable methods",
   "main": "index.js",
   "scripts": {

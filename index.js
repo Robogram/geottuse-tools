@@ -17,8 +17,9 @@ export const getId = () => {
 
   return id
 }
-export const displayTime = time => {
-  const unixtime = Date.parse(time["day"] + " " + time["month"] + " " + time["date"] + " " + time["year"] + " " + time["hour"] + " " + time["minute"])
+export const displayTime = selectedtime => {
+  const isTimeInteger = selectedtime == parseInt(selectedtime)
+  const unixtime = isTimeInteger ? selectedtime : Date.parse(selectedtime["day"] + " " + selectedtime["month"] + " " + selectedtime["date"] + " " + selectedtime["year"] + " " + selectedtime["hour"] + ":" + selectedtime["minute"])
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
   const currTime = new Date(Date.now()), currMonth = currTime.getMonth(), currDate = currTime.getDate(), currYear = currTime.getFullYear()
@@ -40,17 +41,21 @@ export const displayTime = time => {
   if (time <= currentDate) { // today
     timeStr = "today " + timeheader
   } else { // after today
-    if (time - currentDate <= 86340000) {
+    if (time - currentDate <= 86340000) { // tomorrow
       timeStr = "tomorrow " + timeheader
     } else {
       if (time - currentDate < 604800000) { // next week
-        if (selectedTime.getDay() < currTime.getDay()) {
+        if (selectedTime.getDay() > currTime.getDay()) {
           timeStr = "on " + days[selectedTime.getDay()] + " " + timeheader
         } else { // next week same day
           timeStr = "next " + days[selectedTime.getDay()] + " " + timeheader
         }
       } else { // next two weeks or more
-        timeStr = "on " + days[selectedTime.getDay()] + ", " + months[selectedMonth] + " " + selectedDate + " " + timeheader
+        if (selectedTime.getDay() > currTime.getDay()) {
+          timeStr = "next " + days[selectedTime.getDay()] + " " + timeheader
+        } else {
+          timeStr = "on " + days[selectedTime.getDay()] + ", " + months[selectedMonth] + " " + selectedDate + " " + timeheader
+        }
       }
     }
   }
@@ -80,12 +85,40 @@ export const displayPhonenumber = (oldValues, newValue, hideKeyboard) => {
 
   return newValues
 }
-export const resizePhoto = (info, width) => {
-  let s_width = info.width, s_height = info.height
-  let photo_width = width
+export const resizePhoto = (info, maxw, maxh, focus) => {
+  let { width, height } = info
+  let newWidth, newHeight
 
-  return {
-    width: photo_width,
-    height: (photo_width * s_height) / s_width
+  if (width > height) {
+    newWidth = maxw
+    newHeight = (maxw * height) / width
+
+    if (newHeight > maxh) {
+      newWidth = (maxh * newWidth) / newHeight
+      newHeight = maxh
+    }
+  } else {
+    newHeight = maxh
+    newWidth = (maxh * width) / height
+
+    if (newWidth > maxw) {
+      newHeight = (maxw * newHeight) / newWidth
+      newWidth = maxw
+    }
   }
+
+  if (focus != null) {
+    width = newWidth
+    height = newHeight
+
+    if (focus == "width") {
+      newWidth = maxw
+      newHeight = (maxw * height) / width
+    } else {
+      newHeight = maxh
+      newWidth = (maxh * width) / height
+    }
+  }
+
+  return { width: newWidth, height: newHeight }
 }
