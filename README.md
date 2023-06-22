@@ -1,2 +1,2 @@
-# geottuse-tools-react
+# geottuse-tools
 Reusable methods
