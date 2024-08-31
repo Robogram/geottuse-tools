@@ -1,6 +1,15 @@
+## Disclaimer
+
+**Important Notice:**
+
+This package was intended to be licensed under the ISC license. However, due to a missing ISC license file in the npm package and an issue with accessing the npm account (due to two-factor authentication), this package is currently not fully licensed.
+
+**Please refrain from using, modifying, or distributing this package until the issue is resolved and the correct license file is included.**
+
+I am actively working to resolve this issue with npm support. In the meantime, use of this package is not recommended. Thank you for your understanding.
+
 # geottuse-tools
 Reusable methods
 
-# IMPORTANT: MUST READ
-1. This package is not for public use
-2. This library is intended to be licensed under ISC License but without the accidental addition of the LICENSE file, the package is not fully compliant to the license so please don't use.
+# MUST READ
+1. This package is not for public use.
