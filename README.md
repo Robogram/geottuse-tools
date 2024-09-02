@@ -6,7 +6,7 @@ This package is intended to be licensed under the [ISC License](https://opensour
 
 **Please refrain from using, modifying, or distributing this package until the issue is resolved and the correct license file is included.**
 
-I am actively working to resolve this issue with npm support. In the meantime, use of this package is not recommended. Thank you for your understanding.
+I am actively working to resolve this issue with npm support. In the meantime, use of this package is not permitted. Thank you for your understanding.
 
 # geottuse-tools
 Reusable methods
